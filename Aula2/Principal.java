@@ -1,28 +1,25 @@
+public class Principal {
 
-import java.util.Scanner;
+    public static void main(String[] args) {
 
-public class Principal{
+        Corrente corrente = new Corrente(1, 33, 0);
 
-public static void main ( String[] args){
+        System.out.println(corrente.verSaldo());
 
-    Scanner teclado = new Scanner(System.in);
+        corrente.nDeposito(500);
 
-    //Iniciando o objeto da classe corrente
+        System.out.println(corrente.verSaldo());
 
-    Corrente corrente = new Corrente();
+        corrente.nSaque(100);
 
-    System.out.println("Digite o seu nome: ");
+        System.out.println(corrente.verSaldo());
 
-    String nome = teclado.nextLine(); 
+        Poupanca poupanca = new Poupanca(2, 33, 1000);
 
-    System.out.println("Digite o seu cpf: ");
+        System.out.println(poupanca.verSaldo());
 
-    String cpfcli = teclado.nextLine(); 
+        poupanca.meuDeposito(200);
 
-    corrente.setnomecli(nome);
-    corrente.setcpfcli(cpfcli);
-
-
-    corrente.abrirConta();
-}
+        System.out.println(poupanca.verSaldo());
+    }
 }

@@ -1,48 +1,23 @@
-public class Corrente extends conta {
+public class Corrente extends Conta implements IConta {
 
-    private String  nomecli;
-    private String cpfcli;
+    public Corrente(double numconta, double numbanco, double saldo) {
+        super(numconta, numbanco, saldo);
+    }
 
-    public double saldo(){
+    @Override
+    public double verSaldo() {
         return this.getSaldo();
     }
-    
-    
-    public double depositar(double valordep) {
-        return valordep;
+
+    @Override
+    public double nDeposito(double valor) {
+        this.setDeposito(valor);
+        return this.getSaldo();
     }
 
-    public double sacar(double valorsac) {
-        return valorsac;
-    }
-
-    public void abrirConta() {
-        this.setNumbank (001);
-        this.setNumero (10.114);
-        
-        // Dados cliente
-        System.out.println("Seu banco é: " + this.getNumbank() + 
-        "\n Sua conta corrente é:" + this.getNumero() +
-        "\n Nome do cliente: " + this.getnomecli() +
-        "\n CPF do cliente: " + this.getcpfcli());
-
-    }
-
-    // Getters e Setters
-
-    public String getnomecli(){
-        return nomecli;
-    }
-
-    public void setnomecli(String nomecli){
-        this.nomecli = nomecli;
-    }
-    
-    public String getcpfcli(){
-        return cpfcli;
-    }
-
-    public void setcpfcli(String cpfcli){
-        this.cpfcli = cpfcli;
+    @Override
+    public double nSaque(double valor) {
+        this.setSaque(valor);
+        return this.getSaldo();
     }
 }

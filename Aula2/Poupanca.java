@@ -1,36 +1,15 @@
+public class Poupanca extends Conta {
 
-public class Poupanca extends conta implements IContas, ICliente {
+    public Poupanca(double numconta, double numbanco, double saldo) {
+        super(numconta, numbanco, saldo);
+    }
 
-    @Override
-    public double saldo() {
+    public double verSaldo() {
         return this.getSaldo();
     }
 
-    @Override
-    public double depositar(double valor) {
-        return valor;
+    public double meuDeposito(double valor) {
+        this.setDeposito(valor);
+        return this.getSaldo();
     }
-
-    @Override
-    public double sacar(double valor) {
-        return valor;
-    }
-
-    @Override
-    public void abrirConta() {
-        
-        Corrente corr = new Corrente();
-
-        corr.setNumbank(001);
-        corr.setNumero(10.115);
-       
-        // Dados cliente
-        System.out.println("Seu banco é: " + corr.getNumbank() + 
-        "\n Sua conta corrente é:" + corr.getNumero() +
-        "\n Nome do cliente: " + this.getnomecli() +
-        "\n CPF do cliente: " + this.getcpfcli());
-
-    }
-
-
 }
